@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>guessPrice</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+	<div>商品的真实价格为：680（嘘！我是透明的！）</div>
+	<div>输入猜测价格 <input type="text" id="input1" ></div>
+	<div>猜测结果：<span style="color:red;" id="res"></span></div>
+	<div>猜测次数：<span id="num"></span></div>
+    <script>
+    	var realPrice = 680;
+    	var arr = [1, 1000];
+    	var prePrice = 1, afterPrice =1000;
+    	var res = document.getElementById('res');
+    	var num = 0;
+    	document.onkeydown = function( event){
+
+    		if(event.keyCode == 13){
+    			num ++ ;
+    			var m = document.getElementById('input1').value;
+
+    			if( m!== realPrice && m<realPrice ){
+    				if (m >prePrice)
+    					prePrice = m;
+    				arr = [prePrice , afterPrice];
+
+    				res.innerHTML = '猜错~请猜测'+arr[0]+'-'+arr[1]+'之间的价格';
+    				document.getElementById('num').innerHTML = num;
+    				document.getElementById('input1').value = '';
+    			} else if(m!==realPrice && m > realPrice) {
+    				if(m < afterPrice)
+    					afterPrice = m;
+    				arr = [prePrice, afterPrice];
+
+    				res.innerHTML = '猜错~请猜测'+arr[0]+'-'+arr[1]+'之间的价格';
+    				document.getElementById('num').innerHTML = num;
+    				document.getElementById('input1').value = '';
+    			} else {
+    				res.innerHTML = 'you got it';
+    				document.getElementById('num').innerHTML = num;
+    			}
+    		}
+
+    	}
+
+    </script>
+</body>
+</html>
