@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <script>
+    	var string = 'I am coder';
+
+    	function strReverse(string){
+    		var center = [];
+	    	var arr = string.split(' ').reverse();
+
+	    	for(var i=0;i<arr.length;i++){
+	    		var arr2 = [];
+	    		for(var j=0;j<arr[i].length;j++){
+	    			arr2.push(arr[i].charAt(j));
+	    		}
+	    		
+	    		center.push(arr2.reverse().join(''));
+	    	}
+
+	    	return center.join(' ')
+    	}
+    	alert(strReverse(string));
+    </script>
+</body>
+</html>
